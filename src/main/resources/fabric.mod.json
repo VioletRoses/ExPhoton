@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "photon",
+  "version": "${version}",
+  "name": "Photon",
+  "description": "",
+  "authors": [
+    "Vivian"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/photon/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+    ],
+    "main": [
+      "vivi.exphoton.ExPhoton"
+    ]
+  },
+  "mixins": [
+    "photon.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.1",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}

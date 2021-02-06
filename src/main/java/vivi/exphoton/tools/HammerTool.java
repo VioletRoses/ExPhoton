@@ -9,9 +9,16 @@ import java.util.Set;
 
 public class HammerTool extends MiningToolItem {
 
-
     public HammerTool(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(attackDamage, attackSpeed, material, null, settings);
+        this.material = material;
+    }
+
+    public ToolMaterial material;
+
+    @Override
+    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
+        return material.getMiningSpeedMultiplier();
     }
 
     public static boolean isHammer(String tk) {

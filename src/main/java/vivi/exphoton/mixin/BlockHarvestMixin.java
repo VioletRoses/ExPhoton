@@ -23,9 +23,8 @@ public class BlockHarvestMixin {
     @Inject(method = "getDroppedStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)Ljava/util/List;", at = @At("RETURN"), cancellable = true)
     private static void getDroppedStacks(BlockState state, ServerWorld world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack stack, CallbackInfoReturnable<List<ItemStack>> cir) {
         if(ExPhotonRegistry.HAMMER.isRegistered(state.getBlock().asItem()) && HammerTool.isHammer(stack.getItem().getTranslationKey())) {
-            cir.setReturnValue(ExPhotonRegistry.HAMMER.getOutput(state.getBlock().asItem()));
+            cir.setReturnValue(ExPhotonRegistry.HAMMER.getOutput(state.getBlock().asItem(), pos, world));
         } else if(ExPhotonRegistry.CROOK.isRegistered(state.getBlock().asItem()) && CrookTool.isCrook(stack.getItem().getTranslationKey())) {
-            System.out.println("blep");
             cir.setReturnValue(ExPhotonRegistry.CROOK.getOutput(state.getBlock().asItem()));
         }
     }

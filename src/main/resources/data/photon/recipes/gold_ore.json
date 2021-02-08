@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "cc",
+        "cc"
+    ],
+    "key": {
+        "c": {
+            "item": "photon:gold_chunk"
+        }
+    },
+    "result": {
+        "item": "minecraft:gold_ore",
+        "count": 1
+    }
+}

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ExPhotonRegistry {
-    public static BaseRegistry HAMMER = new BaseRegistry(new ArrayList<>(Arrays.asList(
+    public static HammerRegistry HAMMER = new HammerRegistry(new ArrayList<>(Arrays.asList(
             new Item[]{Items.COBBLESTONE, Items.GRAVEL},
             new Item[]{Items.GRAVEL, Items.SAND},
             new Item[]{Items.STONE, Items.GRAVEL})), 1);

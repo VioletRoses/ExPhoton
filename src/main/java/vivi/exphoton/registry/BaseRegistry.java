@@ -2,6 +2,8 @@ package vivi.exphoton.registry;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.BlockPos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,5 +36,9 @@ public class BaseRegistry {
             }
         }
         return returnValue;
+    }
+
+    public List<ItemStack> getOutput(Item input, BlockPos pos, ServerWorld world) {
+        return null;
     }
 }

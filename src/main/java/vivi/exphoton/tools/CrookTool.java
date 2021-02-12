@@ -23,12 +23,14 @@ public class CrookTool extends MiningToolItem {
 
     @Override
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        return 3f;
+        if(isEffectiveOn(state)) return 3.0f;
+        else return 1f;
     }
 
     public static boolean isCrook(String tk) {
         switch(tk) {
             case "item.photon.crook":
+            case "item.photon.bone_crook":
                 return true;
             default:
                 return false;

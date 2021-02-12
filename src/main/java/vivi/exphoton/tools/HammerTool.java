@@ -18,7 +18,8 @@ public class HammerTool extends MiningToolItem {
 
     @Override
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        return material.getMiningSpeedMultiplier();
+        if(isEffectiveOn(state)) return material.getMiningSpeedMultiplier();
+        else return 1f;
     }
 
     public static boolean isHammer(String tk) {
@@ -34,6 +35,8 @@ public class HammerTool extends MiningToolItem {
                 return false;
         }
     }
+
+
 
     @Override
     public boolean isEffectiveOn(BlockState state) {

@@ -1,18 +1,11 @@
 package vivi.exphoton.tools;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MiningToolItem;
-import net.minecraft.item.ToolItem;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import vivi.exphoton.registry.ExPhotonRegistry;
-
-import java.util.Set;
 
 public class CrookTool extends MiningToolItem {
     public CrookTool(ToolMaterial material, Settings settings) {

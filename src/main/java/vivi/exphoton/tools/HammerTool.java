@@ -1,11 +1,8 @@
 package vivi.exphoton.tools;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.*;
 import vivi.exphoton.registry.ExPhotonRegistry;
-
-import java.util.Set;
 
 public class HammerTool extends MiningToolItem {
 

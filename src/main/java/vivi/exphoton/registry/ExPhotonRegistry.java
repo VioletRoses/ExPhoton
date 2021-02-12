@@ -1,7 +1,5 @@
 package vivi.exphoton.registry;
 
-import net.minecraft.item.Item;
-import vivi.exphoton.init.BlockInit;
 import vivi.exphoton.init.ItemInit;
 import vivi.exphoton.util.BlockConditions;
 

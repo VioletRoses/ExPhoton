@@ -7,15 +7,20 @@ import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
-import vivi.exphoton.util.sieves.SieveBlock;
+import vivi.exphoton.util.crucible.CrucibleBlock;
+import vivi.exphoton.util.sieve.SieveBlock;
 
 import static net.minecraft.util.registry.Registry.*;
 
 public class BlockInit {
-    public static Block SIEVE = new SieveBlock(FabricBlockSettings.of(Material.WOOD));
+    public static Block SIEVE = new SieveBlock(FabricBlockSettings.of(Material.WOOD).nonOpaque());
+    public static Block CRUCIBLE = new CrucibleBlock(FabricBlockSettings.of(Material.STONE).nonOpaque());
 
     public static void init() {
         register(BLOCK, new Identifier("photon", "sieve"), SIEVE);
         register(ITEM, new Identifier("photon", "sieve"), new BlockItem(SIEVE, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+
+        register(BLOCK, new Identifier("photon", "crucible"), CRUCIBLE);
+        register(ITEM, new Identifier("photon", "crucible"), new BlockItem(CRUCIBLE, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
     }
 }

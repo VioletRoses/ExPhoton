@@ -1,11 +1,11 @@
 package vivi.exphoton.util;
 
-import net.minecraft.block.Block;
-import net.minecraft.server.world.ServerWorld;
+import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class BlockCondition {
-    public boolean test(Block block, ServerWorld world, BlockPos pos) {
+    public boolean test(Item item, World world, BlockPos pos) {
         return false;
     }
 }

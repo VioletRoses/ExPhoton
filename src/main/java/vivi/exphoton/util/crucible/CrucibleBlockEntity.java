@@ -7,10 +7,12 @@ import alexiil.mc.lib.attributes.fluid.mixin.api.IBucketItem;
 import alexiil.mc.lib.attributes.fluid.volume.FluidKeys;
 import alexiil.mc.lib.attributes.fluid.volume.FluidVolume;
 import alexiil.mc.lib.attributes.item.ItemInsertable;
+import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -22,7 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import vivi.exphoton.init.BlockEntityInit;
 
-public class CrucibleBlockEntity extends BlockEntity implements Tickable, FluidExtractable {
+public class CrucibleBlockEntity extends BlockEntity implements Tickable, FluidExtractable, BlockEntityClientSerializable {
     public CrucibleBlockEntity() {
         super(BlockEntityInit.CRUCIBLE_BLOCK_ENTITY);
     }
@@ -38,14 +40,15 @@ public class CrucibleBlockEntity extends BlockEntity implements Tickable, FluidE
         ItemStack handStack = player.getStackInHand(hand);
         if(stoneVolume + (volume.getAmount_F().numerator / volume.getAmount_F().denominator) > 2000) {
 
-        } else if(handStack.getItem() == Items.COBBLESTONE) {
+        } else if(handStack.getItem() == Items.COBBLESTONE && stoneVolume <= 750) {
             stoneVolume += 250;
             handStack.setCount(handStack.getCount() - 1);
+            markDirty();
         } else if(handStack.getItem() == Items.BUCKET && volume.getAmount_F().whole >= 1) {
             player.setStackInHand(hand, new ItemStack(Items.LAVA_BUCKET));
             volume.getAmount_F().sub(FluidAmount.BUCKET);
+            markDirty();
         }
-
         return ActionResult.SUCCESS;
     }
 
@@ -84,5 +87,23 @@ public class CrucibleBlockEntity extends BlockEntity implements Tickable, FluidE
             stoneVolume = tag.getInt("stoneVolume");
             lavaVolume = tag.getInt("lavaVolume");
         }
+    }
+
+    @Override
+    public void fromClientTag(CompoundTag tag) {
+        if (tag == null) {
+            System.out.println("Crucible has no NBT data");
+        } else {
+            stoneVolume = tag.getInt("stoneVolume");
+            lavaVolume = tag.getInt("lavaVolume");
+        }
+
+    }
+
+    @Override
+    public CompoundTag toClientTag(CompoundTag tag) {
+        tag.putInt("stoneVolume", stoneVolume);
+        tag.putInt("lavaVolume", lavaVolume);
+        return tag;
     }
 }

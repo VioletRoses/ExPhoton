@@ -15,6 +15,7 @@ public class ToolInit {
     public static ToolItem NETHERITE_HAMMER = new HammerTool(ToolMaterials.NETHERITE, 6f, -3.2f, new Item.Settings().group(ItemGroup.TOOLS));
 
     public static ToolItem CROOK = new CrookTool(ToolMaterials.STONE, new Item.Settings().group(ItemGroup.TOOLS));
+    public static ToolItem BONE_CROOK = new CrookTool(ToolMaterials.IRON, new Item.Settings().group(ItemGroup.TOOLS));
 
     public static void init() {
         Registry.register(Registry.ITEM, new Identifier("photon", "wooden_hammer"), WOODEN_HAMMER);
@@ -25,6 +26,7 @@ public class ToolInit {
         Registry.register(Registry.ITEM, new Identifier("photon", "netherite_hammer"), NETHERITE_HAMMER);
 
         Registry.register(Registry.ITEM, new Identifier("photon", "crook"), CROOK);
+        Registry.register(Registry.ITEM, new Identifier("photon", "bone_crook"), BONE_CROOK);
 
     }
 }

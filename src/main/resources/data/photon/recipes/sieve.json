@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        "www",
+        "/ /"
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:bone"
+        },
+        "w": {
+            "tag": "minecraft:planks"
+        }
+    },
+    "result": {
+        "item": "photon:sieve",
+        "count": 1
+    }
+}

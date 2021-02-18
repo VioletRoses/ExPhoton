@@ -1,6 +1,8 @@
 {
   "block.photon.crucible": "Crucible",
   "block.photon.sieve": "Sieve",
+  "block.photon.unfired_crucible": "Unfired Crucible",
+  "item.photon.bone_crook": "Bone Crook",
   "item.photon.crook": "Crook",
   "item.photon.diamond_hammer": "Diamond Hammer",
   "item.photon.gold_chunk": "Gold Chunk",

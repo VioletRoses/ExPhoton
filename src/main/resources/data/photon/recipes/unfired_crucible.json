@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "p p",
+        "p p",
+        "ppp"
+    ],
+    "key": {
+        "p": {
+            "item": "photon_porcelain"
+        }
+    },
+    "result": {
+        "item": "photon:unfired_crucible",
+        "count": 1
+    }
+}

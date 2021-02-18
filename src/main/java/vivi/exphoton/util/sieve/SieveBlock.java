@@ -1,8 +1,10 @@
 package vivi.exphoton.util.sieve;
 
+import alexiil.mc.lib.attributes.item.compat.SidedInventoryFixedWrapper;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -11,6 +13,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
 public class SieveBlock extends Block implements BlockEntityProvider {
@@ -42,6 +45,5 @@ public class SieveBlock extends Block implements BlockEntityProvider {
     public BlockEntity createBlockEntity(BlockView world) {
         return new SieveBlockEntity();
     }
-
 
 }

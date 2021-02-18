@@ -10,10 +10,12 @@ public class ItemInit {
     public static Item IRON_CHUNK = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static Item GOLD_CHUNK = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static Item MESH = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static Item PORCELAIN = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
 
     public static void init() {
         register(ITEM, new Identifier("photon", "iron_chunk"), IRON_CHUNK);
         register(ITEM, new Identifier("photon", "gold_chunk"), GOLD_CHUNK);
-        register(ITEM, new Identifier("photon", "mesh"), MESH);
+        register(ITEM, new Identifier("photon", "string_mesh"), MESH);
+        register(ITEM, new Identifier("photon", "porcelain"), PORCELAIN);
     }
 }

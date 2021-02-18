@@ -14,6 +14,7 @@ public class ExPhotonRegistry {
             new RegEntry(COBBLESTONE, GRAVEL, 1),
             new RegEntry(GRAVEL, SAND, 1),
 
+            //For cobble gen ores
             new RegEntry(COBBLESTONE, ItemInit.IRON_CHUNK, 0.2).addCondition(BlockConditions.isInCobbleGen),
             new RegEntry(COBBLESTONE, ItemInit.IRON_CHUNK, 0.2).addCondition(BlockConditions.isInCobbleGen),
             new RegEntry(COBBLESTONE, ItemInit.GOLD_CHUNK, 0.1).addCondition(BlockConditions.isInCobbleGen),
@@ -35,6 +36,18 @@ public class ExPhotonRegistry {
 
     public static BaseRegistry SIEVE = new BaseRegistry(new ArrayList<>(Arrays.asList(
             new RegEntry(DIRT, WHEAT_SEEDS, 0.2),
-            new RegEntry(DIRT, MELON_SEEDS, 0.1)
+            new RegEntry(DIRT, MELON_SEEDS, 0.07),
+            new RegEntry(DIRT, PUMPKIN_SEEDS, 0.07),
+            new RegEntry(DIRT, BEETROOT_SEEDS, 0.07),
+            new RegEntry(DIRT, CARROT, 0.07),
+            new RegEntry(DIRT, POTATO, 0.07),
+            new RegEntry(DIRT, OAK_SAPLING, 0.07),
+            new RegEntry(DIRT, SPRUCE_SAPLING, 0.07),
+            new RegEntry(DIRT, BIRCH_SAPLING, 0.07),
+            new RegEntry(DIRT, JUNGLE_SAPLING, 0.07),
+            new RegEntry(DIRT, DARK_OAK_SAPLING, 0.07),
+            new RegEntry(DIRT, ACACIA_SAPLING, 0.07),
+            new RegEntry(DIRT, BROWN_MUSHROOM, 0.1),
+            new RegEntry(DIRT, RED_MUSHROOM, 0.1)
     )));
 }

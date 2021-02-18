@@ -3,11 +3,13 @@ package vivi.exphoton.util.sieve;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import vivi.exphoton.init.BlockEntityInit;
@@ -17,11 +19,10 @@ import vivi.exphoton.registry.ExPhotonRegistry;
 import java.util.List;
 
 
-public class SieveBlockEntity extends BlockEntity implements BlockEntityClientSerializable {
+public class SieveBlockEntity extends BlockEntity implements BlockEntityClientSerializable, Tickable {
     public int stage = 0;
     public ItemStack input = ItemStack.EMPTY;
     public ItemStack mesh = ItemStack.EMPTY;
-
 
     public SieveBlockEntity() {
         super(BlockEntityInit.SIEVE_BLOCK_ENTITY);
@@ -39,7 +40,11 @@ public class SieveBlockEntity extends BlockEntity implements BlockEntityClientSe
         } else if(stage >= 7) {
             if(!world.isClient) {
                 List<ItemStack> output = ExPhotonRegistry.SIEVE.getOutput(input.getItem(), world, pos);
-                output.forEach(player::giveItemStack);
+                for (ItemStack itemStack : output) {
+                    ItemEntity itemEntity = new ItemEntity(world, (double) pos.getX() + 0.4d, (double) pos.getY() + 0.75d, (double) pos.getZ() + 0.4d, itemStack);
+                    itemEntity.setToDefaultPickupDelay();
+                    world.spawnEntity(itemEntity);
+                }
             }
             input = ItemStack.EMPTY;
             stage = 0;
@@ -89,5 +94,10 @@ public class SieveBlockEntity extends BlockEntity implements BlockEntityClientSe
         tag.put("input", input.toTag(new CompoundTag()));
         tag.put("mesh", mesh.toTag(new CompoundTag()));
         return tag;
+    }
+
+    @Override
+    public void tick() {
+
     }
 }

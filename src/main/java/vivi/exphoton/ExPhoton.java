@@ -16,5 +16,4 @@ public class ExPhoton implements ModInitializer {
         BlockInit.init();
         BlockEntityInit.init();
     }
-
 }

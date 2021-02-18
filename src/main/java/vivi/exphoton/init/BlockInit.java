@@ -15,6 +15,7 @@ import static net.minecraft.util.registry.Registry.*;
 public class BlockInit {
     public static Block SIEVE = new SieveBlock(FabricBlockSettings.of(Material.WOOD).nonOpaque());
     public static Block CRUCIBLE = new CrucibleBlock(FabricBlockSettings.of(Material.STONE).nonOpaque());
+    public static Block UNFIRED_CRUCIBLE = new Block(FabricBlockSettings.of(Material.SOIL).nonOpaque());
 
     public static void init() {
         register(BLOCK, new Identifier("photon", "sieve"), SIEVE);
@@ -22,5 +23,8 @@ public class BlockInit {
 
         register(BLOCK, new Identifier("photon", "crucible"), CRUCIBLE);
         register(ITEM, new Identifier("photon", "crucible"), new BlockItem(CRUCIBLE, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+
+        register(BLOCK, new Identifier("photon", "unfired_crucible"), UNFIRED_CRUCIBLE);
+        register(ITEM, new Identifier("photon", "unfired_crucible"), new BlockItem(UNFIRED_CRUCIBLE, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
     }
 }

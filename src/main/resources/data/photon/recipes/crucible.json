@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "photon:unfired_crucible"
+    },
+    "result": "photon:crucible",
+    "experience": 0.1,
+    "cookingtime": 200
+}

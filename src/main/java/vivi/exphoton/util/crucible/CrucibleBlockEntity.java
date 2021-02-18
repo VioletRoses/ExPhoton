@@ -1,18 +1,14 @@
 package vivi.exphoton.util.crucible;
 
-import alexiil.mc.lib.attributes.Simulation;
 import alexiil.mc.lib.attributes.fluid.FluidExtractable;
 import alexiil.mc.lib.attributes.fluid.amount.FluidAmount;
-import alexiil.mc.lib.attributes.fluid.mixin.api.IBucketItem;
 import alexiil.mc.lib.attributes.fluid.volume.FluidKeys;
 import alexiil.mc.lib.attributes.fluid.volume.FluidVolume;
-import alexiil.mc.lib.attributes.item.ItemInsertable;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -39,14 +35,13 @@ public class CrucibleBlockEntity extends BlockEntity implements Tickable, FluidE
     public ActionResult interact(World world, BlockPos pos, PlayerEntity player, Hand hand) {
         ItemStack handStack = player.getStackInHand(hand);
         if(stoneVolume + (volume.getAmount_F().numerator / volume.getAmount_F().denominator) > 2000) {
-
         } else if(handStack.getItem() == Items.COBBLESTONE && stoneVolume <= 750) {
             stoneVolume += 250;
             handStack.setCount(handStack.getCount() - 1);
             markDirty();
-        } else if(handStack.getItem() == Items.BUCKET && volume.getAmount_F().whole >= 1) {
+        } else if(handStack.getItem() == Items.BUCKET && lavaVolume > 1000) {
             player.setStackInHand(hand, new ItemStack(Items.LAVA_BUCKET));
-            volume.getAmount_F().sub(FluidAmount.BUCKET);
+            lavaVolume -= 1000;
             markDirty();
         }
         return ActionResult.SUCCESS;
@@ -62,7 +57,7 @@ public class CrucibleBlockEntity extends BlockEntity implements Tickable, FluidE
             if (blockUnder == Blocks.TORCH) heat = 1;
             else if (blockUnder == Blocks.FIRE) heat = 2;
             else if (blockUnder == Blocks.LAVA) heat = 3;
-            if(stoneVolume > 0 && heat > 0 && volume.getAmount_F().isLessThan(FluidAmount.ofWhole(2))) {
+            if(stoneVolume > 0 && heat > 0 && lavaVolume < 2000) {
                 stoneVolume -= heat;
                 lavaVolume += heat;
             }
@@ -106,4 +101,6 @@ public class CrucibleBlockEntity extends BlockEntity implements Tickable, FluidE
         tag.putInt("lavaVolume", lavaVolume);
         return tag;
     }
+
+
 }

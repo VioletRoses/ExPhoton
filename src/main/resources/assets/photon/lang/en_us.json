@@ -1,4 +1,5 @@
 {
+  "block.photon.barrel": "Wooden Barrel",
   "block.photon.crucible": "Crucible",
   "block.photon.sieve": "Sieve",
   "block.photon.unfired_crucible": "Unfired Crucible",
@@ -11,6 +12,7 @@
   "item.photon.iron_hammer": "Iron Hammer",
   "item.photon.mesh": "String Mesh",
   "item.photon.netherite_hammer": "Netherite Hammer",
+  "item.photon.porcelain": "Porcelain",
   "item.photon.stone_hammer": "Stone Hammer",
   "item.photon.wooden_hammer": "Wooden Hammer"
 }

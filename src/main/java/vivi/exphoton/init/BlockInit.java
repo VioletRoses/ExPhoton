@@ -7,6 +7,7 @@ import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
+import vivi.exphoton.util.barrel.BarrelBlock;
 import vivi.exphoton.util.crucible.CrucibleBlock;
 import vivi.exphoton.util.sieve.SieveBlock;
 
@@ -16,6 +17,7 @@ public class BlockInit {
     public static Block SIEVE = new SieveBlock(FabricBlockSettings.of(Material.WOOD).nonOpaque());
     public static Block CRUCIBLE = new CrucibleBlock(FabricBlockSettings.of(Material.STONE).nonOpaque());
     public static Block UNFIRED_CRUCIBLE = new Block(FabricBlockSettings.of(Material.SOIL).nonOpaque());
+    public static Block BARREL = new BarrelBlock(FabricBlockSettings.of(Material.WOOD).nonOpaque());
 
     public static void init() {
         register(BLOCK, new Identifier("photon", "sieve"), SIEVE);
@@ -26,5 +28,8 @@ public class BlockInit {
 
         register(BLOCK, new Identifier("photon", "unfired_crucible"), UNFIRED_CRUCIBLE);
         register(ITEM, new Identifier("photon", "unfired_crucible"), new BlockItem(UNFIRED_CRUCIBLE, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+
+        register(BLOCK, new Identifier("photon", "barrel"), BARREL);
+        register(ITEM, new Identifier("photon", "barrel"), new BlockItem(BARREL, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
     }
 }
